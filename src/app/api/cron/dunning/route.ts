@@ -172,7 +172,7 @@ ${process.env.COMPANY_PHONE || '(555) 123-4567'} | ${process.env.COMPANY_EMAIL |
           bodySnippet: `Payment overdue reminder - ${daysPastDue} days past due`,
           metadata: {
             invoiceId: invoice.id,
-            emailResult,
+            emailResult: emailResult as any,
             daysPastDue,
             remainingBalance,
             templateKey: 'dunning_reminder',

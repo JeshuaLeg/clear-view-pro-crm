@@ -230,7 +230,7 @@ export async function checkExpiringWarranties(daysAhead: number = 30) {
           bodySnippet: `Warranty expires in ${daysUntilExpiry} days`,
           metadata: {
             warrantyId: warranty.id,
-            emailResult,
+            emailResult: emailResult as any,
             daysUntilExpiry,
             templateKey: template.key,
           } as any,
@@ -343,7 +343,7 @@ export async function checkExpiredWarranties() {
               bodySnippet: `Warranty expired follow-up with special offer`,
               metadata: {
                 warrantyId: warranty.id,
-                emailResult,
+                emailResult: emailResult as any,
                 daysSinceExpiry,
                 templateKey: template.key,
               } as any,
