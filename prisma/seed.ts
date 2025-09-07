@@ -300,13 +300,13 @@ async function main() {
         <p><strong>Service Details:</strong></p>
         <p>Vehicle: {vehicleYear} {vehicleMake} {vehicleModel}</p>
         <p>Service Date: {serviceDate}</p>
-        <p><strong>Amount Due: ${total}</strong></p>
+        <p><strong>Amount Due: {total}</strong></p>
         <p>Due Date: {dueDate}</p>
         <p><a href="{paymentLink}">Pay Online</a></p>
         <p>Thank you for your business!</p>
         <p>ClearView Pro Team</p>
       `,
-      textBody: 'Invoice #{invoiceNumber} - Amount Due: ${total}. Pay online: {paymentLink}',
+      textBody: 'Invoice #{invoiceNumber} - Amount Due: {total}. Pay online: {paymentLink}',
       type: 'TRANSACTIONAL',
       variables: ['invoiceNumber', 'customerName', 'vehicleYear', 'vehicleMake', 'vehicleModel', 'serviceDate', 'total', 'dueDate', 'paymentLink'],
     },
