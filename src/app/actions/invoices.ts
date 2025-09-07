@@ -232,7 +232,7 @@ export async function createStripeCheckout(invoiceId: string) {
       }
     }
 
-    const customerEmail = invoice.customer?.email || invoice.dealership?.email
+    const customerEmail = invoice.customer?.email || invoice.dealership?.email || undefined
 
     if (!customerEmail) {
       return { 
@@ -248,9 +248,9 @@ export async function createStripeCheckout(invoiceId: string) {
       const stripeCustomer = await createStripeCustomer({
         email: customerEmail,
         name: invoice.customer 
-          ? `${invoice.customer.firstName} ${invoice.customer.lastName}`
-          : invoice.dealership?.name,
-        phone: invoice.customer?.phone || invoice.dealership?.phone,
+          ? `${invoice.customer.firstName || ''} ${invoice.customer.lastName || ''}`.trim() || undefined
+          : invoice.dealership?.name || undefined,
+        phone: invoice.customer?.phone || invoice.dealership?.phone || undefined,
         metadata: {
           invoiceId: invoice.id,
           customerId: invoice.customerId || '',
