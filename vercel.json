@@ -1,0 +1,34 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/warranty-check",
+      "schedule": "0 9 * * *"
+    },
+    {
+      "path": "/api/cron/dunning",
+      "schedule": "0 8 * * *"
+    }
+  ],
+  "functions": {
+    "src/app/api/webhooks/stripe/route.ts": {
+      "maxDuration": 30
+    },
+    "src/app/api/cron/warranty-check/route.ts": {
+      "maxDuration": 60
+    },
+    "src/app/api/cron/dunning/route.ts": {
+      "maxDuration": 60
+    }
+  },
+  "env": {
+    "DATABASE_URL": "@database-url",
+    "NEXTAUTH_URL": "@nextauth-url",
+    "NEXTAUTH_SECRET": "@nextauth-secret",
+    "RESEND_API_KEY": "@resend-api-key",
+    "STRIPE_SECRET_KEY": "@stripe-secret-key",
+    "STRIPE_WEBHOOK_SECRET": "@stripe-webhook-secret",
+    "OCR_PROVIDER": "@ocr-provider",
+    "NHTSA_API_BASE": "@nhtsa-api-base",
+    "CRON_SECRET": "@cron-secret"
+  }
+}
