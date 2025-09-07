@@ -16,7 +16,6 @@
     "db:studio": "prisma studio",
     "db:reset": "prisma migrate reset --force",
     "db:setup": "prisma migrate deploy && tsx prisma/seed.ts",
-    "postinstall": "prisma generate",
     "type-check": "tsc --noEmit",
     "vercel-build": "prisma generate && prisma migrate deploy && next build"
   },
@@ -40,8 +39,6 @@
     "@radix-ui/react-switch": "^1.0.3",
     "@radix-ui/react-tabs": "^1.0.4",
     "@radix-ui/react-toast": "^1.1.5",
-    "@react-email/components": "^0.0.14",
-    "@react-email/render": "^0.0.12",
     "@react-pdf/renderer": "^3.1.14",
     "@sentry/nextjs": "^7.99.0",
     "@stripe/stripe-js": "^2.4.0",
