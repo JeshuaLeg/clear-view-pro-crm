@@ -68,8 +68,8 @@ export async function extractVinFromImage(formData: FormData) {
             confidence: vehicleInfo.confidence,
             processedAt: new Date().toISOString(),
           },
-          nhtsa: vehicleInfo.nhtsaData,
-        },
+          nhtsa: vehicleInfo.nhtsaData as any,
+        } as any,
       },
     })
 
