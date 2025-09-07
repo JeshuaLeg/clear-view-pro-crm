@@ -13,10 +13,10 @@ import { Camera, Upload, Loader2, CheckCircle, AlertCircle, Car } from 'lucide-r
 interface VehicleResult {
   id: string
   vin: string
-  year?: number
-  make?: string
-  model?: string
-  trim?: string
+  year: number | null
+  make: string | null
+  model: string | null
+  trim: string | null
   confidence: number
   isValid: boolean
 }

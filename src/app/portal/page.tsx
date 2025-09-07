@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 async function getCustomerData(userEmail: string) {
   // Find customer by email
-  const customer = await prisma.customer.findUnique({
+  const customer = await prisma.customer.findFirst({
     where: { email: userEmail },
     include: {
       vehicles: {
@@ -148,7 +148,7 @@ export default async function CustomerPortalDashboard() {
     }
   }
 
-  const getInvoiceStatusBadge = (status: string, dueDate?: Date) => {
+  const getInvoiceStatusBadge = (status: string, dueDate?: Date | null) => {
     if (status === 'OVERDUE' || (dueDate && dueDate < new Date() && status !== 'PAID')) {
       return <Badge variant="destructive">Overdue</Badge>
     }

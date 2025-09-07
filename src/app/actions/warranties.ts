@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
+import { WarrantyStatus } from '@prisma/client'
 import { sendEmail, replaceTemplateVariables, DEFAULT_EMAIL_TEMPLATES } from '@/lib/email'
 import { formatDate, formatCurrency } from '@/lib/utils'
 import { z } from 'zod'
@@ -376,7 +377,7 @@ export async function checkExpiredWarranties() {
   }
 }
 
-export async function updateWarrantyStatus(warrantyId: string, status: string) {
+export async function updateWarrantyStatus(warrantyId: string, status: WarrantyStatus) {
   try {
     const session = await getServerSession(authOptions)
     

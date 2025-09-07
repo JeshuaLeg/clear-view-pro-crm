@@ -74,7 +74,7 @@ export default async function InvoicePage({ params }: InvoicePageProps) {
     notFound()
   }
 
-  const getStatusBadge = (status: string, dueDate?: Date) => {
+  const getStatusBadge = (status: string, dueDate?: Date | null) => {
     if (status === 'OVERDUE' || (dueDate && dueDate < new Date() && status !== 'PAID')) {
       return <Badge variant="destructive">Overdue</Badge>
     }

@@ -1,5 +1,5 @@
 import { NextAuthOptions } from 'next-auth'
-import { PrismaAdapter } from '@auth/prisma-adapter'
+import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import GoogleProvider from 'next-auth/providers/google'
 import EmailProvider from 'next-auth/providers/email'
 import CredentialsProvider from 'next-auth/providers/credentials'
@@ -114,7 +114,7 @@ export function isAdmin(userRole: UserRole): boolean {
 }
 
 export function canAccessAdmin(userRole: UserRole): boolean {
-  return [UserRole.ADMIN, UserRole.TECH, UserRole.STAFF].includes(userRole)
+  return userRole === UserRole.ADMIN || userRole === UserRole.TECH || userRole === UserRole.STAFF
 }
 
 export function canAccessCustomerPortal(userRole: UserRole): boolean {

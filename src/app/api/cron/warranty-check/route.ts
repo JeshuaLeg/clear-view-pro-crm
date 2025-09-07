@@ -23,22 +23,22 @@ export async function GET(request: NextRequest) {
     const summary = {
       timestamp: new Date().toISOString(),
       expiring30Days: {
-        processed: expiringResult.processed,
-        success: expiringResult.success,
+        processed: expiringResult?.processed || 0,
+        success: expiringResult?.success || false,
       },
       expiring7Days: {
-        processed: urgentResult.processed,
-        success: urgentResult.success,
+        processed: urgentResult?.processed || 0,
+        success: urgentResult?.success || false,
       },
       expired: {
-        processed: expiredResult.expired,
-        followUpsSent: expiredResult.followUpsSent,
-        success: expiredResult.success,
+        processed: expiredResult?.expired || 0,
+        followUpsSent: expiredResult?.followUpsSent || 0,
+        success: expiredResult?.success || false,
       },
       totalEmailsSent: 
-        (expiringResult.success ? expiringResult.processed : 0) +
-        (urgentResult.success ? urgentResult.processed : 0) +
-        (expiredResult.success ? expiredResult.followUpsSent : 0),
+        (expiringResult?.success ? expiringResult.processed || 0 : 0) +
+        (urgentResult?.success ? urgentResult.processed || 0 : 0) +
+        (expiredResult?.success ? expiredResult.followUpsSent || 0 : 0),
     }
 
     console.log('Warranty check completed:', summary)

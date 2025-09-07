@@ -111,7 +111,7 @@ export class AWSTextractOCR {
     service: string
   ): Promise<string> {
     const kDate = await this.hmac(
-      new TextEncoder().encode(`AWS4${this.secretAccessKey}`),
+      new TextEncoder().encode(`AWS4${this.secretAccessKey}`).buffer,
       dateStamp
     )
     const kRegion = await this.hmac(kDate, region)

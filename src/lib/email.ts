@@ -18,15 +18,23 @@ export interface EmailOptions {
 
 export async function sendEmail(options: EmailOptions) {
   try {
-    const result = await resend.emails.send({
+    const emailData: any = {
       from: options.from || process.env.EMAIL_FROM || 'ClearView Pro <noreply@clearviewpro.com>',
       to: Array.isArray(options.to) ? options.to : [options.to],
       subject: options.subject,
-      html: options.html,
-      text: options.text,
       reply_to: options.replyTo,
       tags: options.tags,
-    })
+    }
+
+    // Add content based on what's available
+    if (options.html) {
+      emailData.html = options.html
+    }
+    if (options.text) {
+      emailData.text = options.text
+    }
+
+    const result = await resend.emails.send(emailData)
 
     return { success: true, data: result }
   } catch (error) {

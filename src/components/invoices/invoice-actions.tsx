@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { Decimal } from '@prisma/client/runtime/library'
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/components/ui/use-toast'
 import { createStripeCheckout, createStripePaymentLink, updateInvoiceStatus } from '@/app/actions/invoices'
@@ -38,7 +39,7 @@ interface InvoiceActionsProps {
     id: string
     number: string
     status: string
-    total: number
+    total: Decimal
     pdfUrl?: string | null
     customer?: { email?: string | null } | null
     dealership?: { email?: string | null } | null

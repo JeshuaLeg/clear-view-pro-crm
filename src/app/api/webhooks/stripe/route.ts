@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { headers } from 'next/headers'
 import { constructWebhookEvent } from '@/lib/stripe'
 import { prisma } from '@/lib/prisma'
+import { InvoiceStatus } from '@prisma/client'
 import Stripe from 'stripe'
 
 export async function POST(request: NextRequest) {
@@ -162,18 +163,18 @@ async function handlePaymentIntentSucceeded(paymentIntent: Stripe.PaymentIntent)
       const invoiceTotal = Number(payment.invoice.total)
       const amountPaid = Number(totalPaid._sum.amount || 0)
 
-      let invoiceStatus = 'SENT'
+      let invoiceStatus: InvoiceStatus = InvoiceStatus.SENT
       if (amountPaid >= invoiceTotal) {
-        invoiceStatus = 'PAID'
+        invoiceStatus = InvoiceStatus.PAID
       } else if (amountPaid > 0) {
-        invoiceStatus = 'PARTIAL'
+        invoiceStatus = InvoiceStatus.PARTIAL
       }
 
       await prisma.invoice.update({
         where: { id: payment.invoiceId },
         data: {
           status: invoiceStatus,
-          paidAt: invoiceStatus === 'PAID' ? new Date() : undefined,
+          paidAt: invoiceStatus === InvoiceStatus.PAID ? new Date() : undefined,
         },
       })
 

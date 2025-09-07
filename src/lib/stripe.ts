@@ -5,7 +5,7 @@ if (!process.env.STRIPE_SECRET_KEY) {
 }
 
 export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2024-06-20',
+  apiVersion: '2023-10-16',
   typescript: true,
 })
 
@@ -112,7 +112,7 @@ export const createCheckoutSession = async (params: {
     success_url: params.successUrl,
     cancel_url: params.cancelUrl,
     metadata: params.metadata,
-    payment_method_types: params.paymentMethodTypes || ['card'],
+    payment_method_types: (params.paymentMethodTypes as any) || ['card'],
     billing_address_collection: 'required',
     shipping_address_collection: {
       allowed_countries: ['US'],
