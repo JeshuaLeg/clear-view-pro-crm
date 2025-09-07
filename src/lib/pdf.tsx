@@ -109,27 +109,27 @@ interface InvoiceData {
     total: number
     dueAt: Date | null
     createdAt: Date
-    notes?: string
+    notes: string | null
   }
   customer?: {
-    firstName?: string
-    lastName?: string
-    email?: string
-    phone?: string
+    firstName: string | null
+    lastName: string | null
+    email: string | null
+    phone: string | null
   }
   dealership?: {
     name: string
-    email?: string
-    phone?: string
+    email: string | null
+    phone: string | null
   }
   job: {
     jobNumber: string
     vehicle: {
       vin: string
-      year?: number
-      make?: string
-      model?: string
-      trim?: string
+      year: number | null
+      make: string | null
+      model: string | null
+      trim: string | null
     }
     serviceItems: Array<{
       description: string
