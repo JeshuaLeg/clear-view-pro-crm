@@ -6,7 +6,9 @@ A comprehensive headlight restoration CRM system built with Next.js 14, TypeScri
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FJeshuaLeg%2Fclear-view-pro-crm&env=DATABASE_URL,NEXTAUTH_SECRET,NEXTAUTH_URL,RESEND_API_KEY,STRIPE_SECRET_KEY,STRIPE_PUBLISHABLE_KEY,STRIPE_WEBHOOK_SECRET,OCR_PROVIDER&envDescription=Environment%20variables%20needed%20for%20ClearView%20Pro%20CRM&envLink=https%3A%2F%2Fgithub.com%2FJeshuaLeg%2Fclear-view-pro-crm%2Fblob%2Fmain%2Fenv.example&project-name=clear-view-pro-crm&repository-name=clear-view-pro-crm)
 
-**One-click deploy to Vercel** - All environment variables will be prompted during setup.
+**One-click deploy to Vercel** - Environment variables prompted during setup.
+
+📋 **After deployment**: Follow [POST_DEPLOY_SETUP.md](./POST_DEPLOY_SETUP.md) to initialize your database and configure webhooks.
 
 ## Features
 
