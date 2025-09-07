@@ -107,7 +107,7 @@ interface InvoiceData {
     subtotal: number
     taxAmount: number
     total: number
-    dueAt?: Date
+    dueAt: Date | null
     createdAt: Date
     notes?: string
   }
