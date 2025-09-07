@@ -159,6 +159,7 @@ model Customer {
   lastName  String?
   email     String?
   phone     String?
+  stripeCustomerId String? // Stripe customer ID for payments
   createdAt DateTime    @default(now())
   updatedAt DateTime    @updatedAt
 
@@ -182,6 +183,7 @@ model Dealership {
   phone       String?
   website     String?
   taxId       String?
+  stripeCustomerId String? // Stripe customer ID for payments
   paymentTerms PaymentTerms @default(NET_30)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

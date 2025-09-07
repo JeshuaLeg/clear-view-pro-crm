@@ -116,11 +116,13 @@ interface InvoiceData {
     lastName: string | null
     email: string | null
     phone: string | null
+    stripeCustomerId: string | null
   } | null
   dealership: {
     name: string
     email: string | null
     phone: string | null
+    stripeCustomerId: string | null
   } | null
   job: {
     jobNumber: string
