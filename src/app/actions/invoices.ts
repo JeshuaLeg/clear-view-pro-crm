@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
+import { InvoiceStatus } from '@prisma/client'
 import { stripe, createStripeCustomer, createCheckoutSession, createPaymentLink, toStripeAmount } from '@/lib/stripe'
 import { generateInvoicePDF, savePDFToStorage } from '@/lib/pdf'
 import { generateInvoiceNumber, calculateDueDate } from '@/lib/utils'
@@ -391,7 +392,7 @@ export async function createStripePaymentLink(invoiceId: string) {
   }
 }
 
-export async function updateInvoiceStatus(invoiceId: string, status: string) {
+export async function updateInvoiceStatus(invoiceId: string, status: InvoiceStatus) {
   try {
     const session = await getServerSession(authOptions)
     
