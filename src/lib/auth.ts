@@ -102,6 +102,7 @@ export const authOptions: NextAuthOptions = {
     signIn: '/auth/signin',
     error: '/auth/error',
   },
+  secret: process.env.NEXTAUTH_SECRET,
 }
 
 export function hasPermission(userRole: UserRole, requiredRoles: UserRole[]): boolean {
