@@ -137,7 +137,7 @@ interface InvoiceData {
       unitPrice: number
       type: string
     }>
-    completedAt?: Date
+    completedAt: Date | null
   }
   company: {
     name: string
