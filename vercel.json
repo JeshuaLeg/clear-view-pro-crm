@@ -20,15 +20,4 @@
       "maxDuration": 60
     }
   },
-  "env": {
-    "DATABASE_URL": "@database-url",
-    "NEXTAUTH_URL": "@nextauth-url",
-    "NEXTAUTH_SECRET": "@nextauth-secret",
-    "RESEND_API_KEY": "@resend-api-key",
-    "STRIPE_SECRET_KEY": "@stripe-secret-key",
-    "STRIPE_WEBHOOK_SECRET": "@stripe-webhook-secret",
-    "OCR_PROVIDER": "@ocr-provider",
-    "NHTSA_API_BASE": "@nhtsa-api-base",
-    "CRON_SECRET": "@cron-secret"
-  }
 }
