@@ -111,17 +111,17 @@ interface InvoiceData {
     createdAt: Date
     notes: string | null
   }
-  customer?: {
+  customer: {
     firstName: string | null
     lastName: string | null
     email: string | null
     phone: string | null
-  }
-  dealership?: {
+  } | null
+  dealership: {
     name: string
     email: string | null
     phone: string | null
-  }
+  } | null
   job: {
     jobNumber: string
     vehicle: {
