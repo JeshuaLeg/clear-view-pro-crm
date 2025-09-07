@@ -165,7 +165,7 @@ export const InvoicePDF = ({ data }: { data: InvoiceData }) => {
 
   return (
     <Document>
-      <Page size="A4" style={styles.page}>
+      <Page size={[595, 842]} style={styles.page}>
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.title}>INVOICE</Text>
