@@ -233,7 +233,7 @@ export async function checkExpiringWarranties(daysAhead: number = 30) {
             emailResult,
             daysUntilExpiry,
             templateKey: template.key,
-          },
+          } as any,
         },
       })
 
@@ -346,7 +346,7 @@ export async function checkExpiredWarranties() {
                 emailResult,
                 daysSinceExpiry,
                 templateKey: template.key,
-              },
+              } as any,
             },
           })
 

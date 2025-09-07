@@ -176,7 +176,7 @@ ${process.env.COMPANY_PHONE || '(555) 123-4567'} | ${process.env.COMPANY_EMAIL |
             daysPastDue,
             remainingBalance,
             templateKey: 'dunning_reminder',
-          },
+          } as any,
         },
       })
 
